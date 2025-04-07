@@ -4,29 +4,22 @@ import java.util.Calendar;
  * BankAccount class conductors and methods to deposit, withdraw, see the balance and transactions
  * @author Ashley Prasad (initialize account balance conductor, deposit method, withdraw method)
  * @author Shriyash Ghimire (set account balance conductor, get balance method, get statement method)
- * @since 04/07/2025
+ * @since [edit later]
  */
 public class BankAccount {
     private int accountNumber;
     private int accountBalance;
     private StringBuilder statement;
 
-    /**
-     * Constructor to initialize account balance and statement
-     */
-    public BankAccount() {
-        this.accountBalance = 0;
-        this.statement = new StringBuilder();
-    }
-    /**
-     * Overloaded constructor that sets account balance
-     * @param i : is the received amount
+    /** Description : Initializes the bank balance with the given amount or with 0 if none given
+     * @param  i : the initial bank balance before any transactions are made.
+     *
      */
     public BankAccount(int i) {
         this.accountBalance = i;
         this.statement = new StringBuilder();
     }
-
+    
     /**
      * Method to deposit a specified amount into bank account, recording it in the transaction statement
      * @param amount : amount to be deposited into the account.
@@ -56,19 +49,24 @@ public class BankAccount {
         statement.append("Withdrawn: " + amount + " on " + Calendar.getInstance().getTime() + "\n");
     }
 
+
     /** Description : Method to get the balance from the bank account.
      * @return : current bank balance.
      */
+
     public int getBalance(){
         return this.accountBalance;
     }
+
     /**
      * Description : Method that returns all the transaction history of the associated account.
      */
+
     public String getStatement(){
-        return  ("Transaction History: \n" +
-                this.statement +
+        return  (this.statement +
                 "************************************* \n \n"+
                 "The total balance on this account is: " + this.accountBalance);
     }
+
+
 }
