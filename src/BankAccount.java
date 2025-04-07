@@ -11,43 +11,62 @@ public class BankAccount {
     private int accountBalance;
     private StringBuilder statement;
 
-    /**
-     * Method to initialize account balance and statement
+    /** Description : Initializes the bank balance with the given amount or with 0 if none given
+     * @param  i : the initial bank balance before any transactions are made.
+     *
      */
-    public BankAccount() {
-        this.accountBalance = 0;
+    public BankAccount(int i) {
+        this.accountBalance = i;
         this.statement = new StringBuilder();
     }
-
-    // Overloaded Constructor Here
-
+    
     /**
      * Method to deposit a specified amount into bank account, recording it in the transaction statement
-     * @param accountBalance
+     * @param amount : amount to be deposited into the account.
      */
-    public void deposit(int accountBalance) {
-        if (accountBalance > 0) {
-            this.accountBalance += accountBalance;
+    public void deposit(int amount) {
+        if (amount <= 0) {
+            System.out.println("Deposit amount must be positive.");
+            return;
         }
-        else {
-            this.accountBalance -= accountBalance;
-        }
-        this.statement.append("Deposited: " + accountBalance + " on " + Calendar.getInstance().getTime() + "\n");
+        this.accountBalance += amount;
+        statement.append("Deposited: " + amount + " on " + Calendar.getInstance().getTime() + "\n");
     }
     /**
      * Method to withdraw a specified amount into bank account, recording it in the transaction statement
-     * @param accountBalance
+     * @param amount : amount to be withdrawn from the balance.
      */
-    public void withdraw(int accountBalance) {
-        if (accountBalance > 0) {
-            this.accountBalance -= accountBalance;
+    public void withdraw(int amount) {
+        if (amount <= 0) {
+            System.out.println("Withdrawal amount must be positive.");
+            return;
         }
-        else {
-            this.accountBalance += accountBalance;
+        if (amount > this.accountBalance) {
+            System.out.println("Insufficient funds.");
+            return;
         }
-        this.statement.append("Withdrawn: " + accountBalance + " on " + Calendar.getInstance().getTime() + "\n");
+        this.accountBalance -= amount;
+        statement.append("Withdrawn: " + amount + " on " + Calendar.getInstance().getTime() + "\n");
     }
 
-    // getBalance, getStatement Methods here
+
+    /** Description : Method to get the balance from the bank account.
+     * @return : current bank balance.
+     */
+
+    public int getBalance(){
+        return this.accountBalance;
+    }
+
+    /**
+     * Description : Method that returns all the transaction history of the associated account.
+     */
+
+    public String getStatement(){
+        return  (this.statement +
+                "************************************* \n \n"+
+                "The total balance on this account is: " + this.accountBalance);
+    }
+
 
 }
