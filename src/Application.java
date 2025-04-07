@@ -25,7 +25,6 @@ public class Application {
         account.withdraw(200);
         System.out.println("*************************************");
         System.out.println(account.getStatement());
-
     }
 
 }
