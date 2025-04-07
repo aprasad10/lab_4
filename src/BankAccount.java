@@ -71,5 +71,4 @@ public class BankAccount {
                 "************************************* \n \n"+
                 "The total balance on this account is: " + this.accountBalance);
     }
-
 }
