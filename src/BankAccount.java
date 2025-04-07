@@ -11,14 +11,7 @@ public class BankAccount {
     private int accountBalance;
     private StringBuilder statement;
 
-    /**
-     * Initializes the bank balance and statement as 0 or null
-     */
-    public BankAccount() {
-        this.accountBalance = 0;
-        this.statement = new StringBuilder();
-    }
-    /** Description : Sets the bank balance with the given amount
+    /** Description : Initializes the bank balance with the given amount.
      * @param  i : the initial bank balance before any transactions are made.
      *
      */
@@ -26,7 +19,18 @@ public class BankAccount {
         this.accountBalance = i;
         this.statement = new StringBuilder();
     }
-    
+
+    /** Description : Initializes the bank balance with null balnace.
+     */
+
+    public BankAccount(){
+        this.accountBalance = 0;
+        this.statement = new StringBuilder();
+
+    }
+
+
+
     /**
      * Method to deposit a specified amount into bank account, recording it in the transaction statement
      * @param amount : amount to be deposited into the account.
@@ -70,8 +74,7 @@ public class BankAccount {
      */
 
     public String getStatement(){
-        return  ("Transaction History: \n" +
-                this.statement +
+        return  (this.statement +
                 "************************************* \n \n"+
                 "The total balance on this account is: " + this.accountBalance);
     }
