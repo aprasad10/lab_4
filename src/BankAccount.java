@@ -11,7 +11,14 @@ public class BankAccount {
     private int accountBalance;
     private StringBuilder statement;
 
-    /** Description : Initializes the bank balance with the given amount or with 0 if none given
+    /**
+     * Initializes the bank balance and statement as 0 or null
+     */
+    public BankAccount() {
+        this.accountBalance = 0;
+        this.statement = new StringBuilder();
+    }
+    /** Description : Sets the bank balance with the given amount
      * @param  i : the initial bank balance before any transactions are made.
      *
      */
@@ -63,7 +70,8 @@ public class BankAccount {
      */
 
     public String getStatement(){
-        return  (this.statement +
+        return  ("Transaction History: \n" +
+                this.statement +
                 "************************************* \n \n"+
                 "The total balance on this account is: " + this.accountBalance);
     }
